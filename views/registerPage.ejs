@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            width: 50vw;
+            gap: 1rem;
+            border: 1px solid black;
+            padding: 2rem 0rem;
+            box-shadow: 0px 0px 2px black;
+            border-radius: 0.7rem;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+        }
+        label{
+            text-align: left;
+            width: 72%;
+            font-size: 1.2rem;
+        }
+        input {
+            width: 70%;
+            padding: .5rem 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        button {
+            padding: 0.5rem 1rem;
+            background-color: blue;
+            color: white;
+            font-weight: 700;
+            width: 30%;
+            margin: auto;
+            border: none;
+            border-radius: 0.7rem;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: white;
+            color: blue;
+            border: 1px solid blue;
+            transition: all 0.3s;
+            box-shadow: 0px 0px 2px black;
+        }
+
+        center {
+            font-weight: 800;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form action="register" method="POST" class="form">
+            <center>Register Form</center>
+            <label for="name">Name:</label>
+            <input type="text" name="name" placeholder="Enter your name
+                " required>
+            <label for="email">Email:</label>
+            <input type="email" name="email" placeholder="Enter your email
+                " required>
+            <label for="username">Username:</label>
+            <input type="text" name="username" placeholder="Enter your username
+                " required>
+            <label for="password">Password:</label>
+            <input type="password" name="password" placeholder="Enter your password
+                " required>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>

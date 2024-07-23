@@ -1,0 +1,41 @@
+** Todo App **
+
+setup express server (done)
+MongoDb connection (done)
+
+set the view engine of express to EJS (done)
+
+Register page (done)
+Login page (done)
+
+Register api (done)
+Login api (done)
+
+Session based auth (done)
+Middleware to protect Api's (done)
+
+Dashboard page (done)
+Logout (done)
+Logout from all devices
+
+Todo API's
+create API ( done )
+Read api ( done )
+edit api ( done )
+delete api ( done )
+
+dashboard client side (axios)
+axios create API
+axios Read api
+axios edit api
+axios delete api
+
+Pagination
+Ratelimiting
+
+JWT auth
+
+
+
+
+SRS - software requirement specification
