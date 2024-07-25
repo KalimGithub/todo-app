@@ -12,6 +12,8 @@ const userModel = require("./models/userModel");
 const isAuth = require("./middlewares/authMiddleware");
 const toDoModel = require("./models/toDoModel");
 const todoDataValidation = require("./utils/todoUtils");
+const todoModel = require("./models/toDoModel");
+const rateLimiting = require("./middlewares/rateLiming");
 
 // constants
 const app = express();
@@ -158,7 +160,7 @@ app.post("/logout", isAuth, (req, res) => {
 
 // todo API's
 // create api
-app.post("/create-item", isAuth, async (req, res) => {
+app.post("/create-item", isAuth, rateLimiting, async (req, res) => {
   // req.body spread
   // console.log(req.session.user.username);
   const { todo } = req.body;
@@ -176,7 +178,7 @@ app.post("/create-item", isAuth, async (req, res) => {
   });
   // store in db
   try {
-    const todoData = await todoDb.save();
+     const todoData = await todoDb.save();
     return res.status(201).json({
       message: "todo created successfully",
       data: todoData,
@@ -191,13 +193,33 @@ app.post("/create-item", isAuth, async (req, res) => {
 // read api
 app.get("/read-item", isAuth, async (req, res) => {
   const username = req.session.user.username;
+  const SKIP = Number(req.query.skip) || 0;
+  const LIMIT = 5;
+  console.log(SKIP);
   try {
-    const todoData = await toDoModel.find({ username: username });
+    //  const todoData = await toDoModel.find({ username: username });
+
+    // mondodb aggregate method
+    // match and pagination(skip, limit)
+    const todoData = await todoModel.aggregate([
+      { $match: { username: username } },
+      { $skip: SKIP },
+      { $limit: LIMIT },
+    ]);
+    // console.log("208", todoData);
+
     if (todoData.length === 0) {
-      return res.send({
-        status: 403,
-        message: "No todo found,",
-      });
+      if (SKIP > 0) {
+        return res.send({
+          status: 403,
+          message: "No More todo found",
+        });
+      } else {
+        return res.send({
+          status: 403,
+          message: "No todo found",
+        });
+      }
     }
     return res.send({
       status: 200,
@@ -224,10 +246,10 @@ app.post("/edit-item", isAuth, async (req, res) => {
   try {
     await todoDataValidation({ todo: newData });
   } catch (error) {
-   return res.send({
-     status: 400,
-     message: error,
-   });
+    return res.send({
+      status: 400,
+      message: error,
+    });
   }
   // fiding todo from db by the todoId
   try {

@@ -39,7 +39,7 @@
             border-radius: 0.7rem;
             border: none;
         }
-        .logout-btn{
+        .logout-btn, .show-more{
             background-color: blue;
             color: white;
             padding: 1rem;
@@ -48,6 +48,11 @@
             font-weight: 600;
             font-size: 1rem;
             border-radius: 0.7rem;
+        }
+        .logout-btn:hover,.show-more:hover{
+            cursor: pointer;
+            box-shadow: 2px 2px 2px black;
+            transition: all 0.3s;
         }
         .logout-form{
             display: flex;
@@ -105,6 +110,10 @@
             </div>
         <!-- </form> -->
         <ul id="item-list"></ul>
+        <!-- show more btn -->
+         <button class="show-more">Show More</button>
+         <br>
+         <br>
         <!-- <form method="post" action="/logout" class="logout-form"> -->
             <button class="logout-btn" type="submit">Logout</button>
         <!-- </form> -->

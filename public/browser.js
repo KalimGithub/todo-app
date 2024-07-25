@@ -1,15 +1,19 @@
+let skip = 0;
 window.onload = generateTodos;
 
 function generateTodos() {
   axios
-    .get("/read-item")
+    .get(`/read-item?skip=${skip}`)
     .then((response) => {
-    //   console.log(response);
+      //   console.log(response);
       if (response.data.status !== 200) {
         alert(response.data.message);
         return;
       }
+      console.log(skip);
       const todos = response.data.data;
+      skip += todos.length;
+      console.log(skip);
       document.getElementById("item-list").insertAdjacentHTML(
         "beforeend",
         todos
@@ -79,7 +83,7 @@ document.addEventListener("click", (event) => {
       .then((res) => {
         const todoText = res.data.data.todo;
         const todoId = res.data.data._id;
-        console.log(todoText, todoId);
+        // console.log(todoText, todoId);
         document.getElementById("todo-input").value = "";
         console.log(res);
         document.getElementById("item-list").insertAdjacentHTML(
@@ -122,6 +126,7 @@ document.addEventListener("click", (event) => {
       .catch((err) => {
         console.log(err);
       });
+  } else if (event.target.classList.contains("show-more")) {
+    generateTodos();
   }
-
 });

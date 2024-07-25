@@ -19,19 +19,20 @@ Logout (done)
 Logout from all devices
 
 Todo API's
-create API ( done )
-Read api ( done )
-edit api ( done )
-delete api ( done )
+create Api ( done )
+Read Api ( done )
+edit Api ( done )
+delete Api ( done )
 
 dashboard client side (axios)
-axios create API
-axios Read api
-axios edit api
-axios delete api
+axios create Api ( done )
+axios Read Api ( done )
+axios edit Api ( done )
+axios delete Api ( done )
 
-Pagination
-Ratelimiting
+Pagination ( done )
+Ratelimiting 
+Deployment
 
 JWT auth
 
