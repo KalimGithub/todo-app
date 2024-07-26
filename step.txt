@@ -31,10 +31,10 @@ axios edit Api ( done )
 axios delete Api ( done )
 
 Pagination ( done )
-Ratelimiting 
-Deployment
+Ratelimiting ( done )
+Deployment ( done )
 
-JWT auth
+JWT auth ( pending )
 
 
 

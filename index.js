@@ -178,7 +178,7 @@ app.post("/create-item", isAuth, rateLimiting, async (req, res) => {
   });
   // store in db
   try {
-     const todoData = await todoDb.save();
+    const todoData = await todoDb.save();
     return res.status(201).json({
       message: "todo created successfully",
       data: todoData,

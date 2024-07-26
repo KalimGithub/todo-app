@@ -1,77 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ToDo Home</title>
-</head>
-<style>
-    body{
-        font-family:sans-serif;
-        margin: 0;
-        padding: 0;
+  </head>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
     }
-    .header{
-        display: flex;
-        background-color: rgb(65, 112, 242);
-        color: white;
-        justify-content: space-between;
-        width: 98%;
-        align-items: center;
-        padding: 0rem 1rem;
+    .header {
+      display: flex;
+      background-color: rgb(65, 112, 242);
+      color: white;
+      justify-content: space-between;
+      width: 98%;
+      align-items: center;
+      padding: 0rem 1rem;
     }
-    .container{
-        width: 30vw;
-        margin: 3rem auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        gap: 2rem;
-        padding: 2rem 1rem;
-        border: 1px solid black;
-        border-radius: 1rem;
-        box-shadow: 1px 1px 5px rgb(6, 134, 246);
+    .container {
+      width: 30vw;
+      margin: 3rem auto;
+      display: flex;
+      justify-content: center;
+      /* align-items: center; */
+      flex-direction: column;
+      gap: 2rem;
+      padding: 2rem 1rem;
+      border: 1px solid black;
+      border-radius: 1rem;
+      box-shadow: 1px 1px 5px rgb(6, 134, 246);
     }
-    .register-form,.login-form{
-        display: flex;
-        gap: 1rem;
-        justify-content: space-between;
+    .register-form,
+    .login-form {
+      display: flex;
+      justify-content: space-between;
+      width: 75%;
+      margin: auto;
     }
-    .register-btn,.login-btn{
-        background-color: tomato;
-        color: white;
-        border: none;
-        border-radius: 0.5rem;
-        padding: 1rem 2rem;
-        font-size: 1rem;
-        font-weight: 500;
-        cursor: pointer;
+    .register-btn,
+    .login-btn {
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
     }
-    .login-btn{
-        background-color: green;
+    .register-btn:hover {
+      background-color: white;
+      color: red;
+      border: 2px solid red;
+      box-shadow: 1px 1px 2px red;
     }
-</style>
-<body>
+    .login-btn:hover {
+      background-color: white;
+      color: green;
+      border: 2px solid green;
+      box-shadow: 1px 1px 2px green;
+    }
+    .login-btn {
+      background-color: green;
+    }
+    p {
+      font-size: 1.2rem;
+    }
+  </style>
+  <body>
     <header class="header">
-        <div>
-            <h1>ToDo</h1>
-        </div>
+      <div>
+        <h1>ToDo</h1>
+      </div>
     </header>
+    <center
+      style="
+        font-size: 2.5rem;
+        font-weight: 600;
+        font-family: cursive;
+        margin-top: 2rem;
+      "
+    >
+      Welcome to <span style="color: rgb(6, 134, 246)">ToDo</span> App
+    </center>
     <div class="container">
-        <center style="font-size: 2.5rem; font-weight: 600;font-family: cursive;">Welcome ToDo App</center>
-        <!-- register page -->
-        <form class="register-form" method="get" action="/register">
-            <p>New User??</p>
-            <button class="register-btn" type="submit">Register Yourself 🤔</button>
-        </form>
-        <!-- login page -->
-        <form class="login-form" method="get" action="/login">
-            <p>Already have an account!</p>
-            <button class="login-btn" type="submit">Login Yourself 😎</button>
-        </form>
+      <!-- register page -->
+      <form class="register-form" method="get" action="/register">
+        <p>New User??</p>
+        <button class="register-btn" type="submit">Register</button>
+      </form>
+      <!-- login page -->
+      <form class="login-form" method="get" action="/login">
+        <p>Already have an account!</p>
+        <button class="login-btn" type="submit">Login</button>
+      </form>
     </div>
-</body>
-
+  </body>
 </html>
